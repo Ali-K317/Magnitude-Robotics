@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
-public class hardware {
+public class hardwareIntoTheDeep {
     // Arm components
     public DcMotor mantis; //EXP PRT 0
     public DcMotor lift; //EXP PRT 2

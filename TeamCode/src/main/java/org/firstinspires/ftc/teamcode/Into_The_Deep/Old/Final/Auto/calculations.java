@@ -2,11 +2,11 @@ package org.firstinspires.ftc.teamcode.Into_The_Deep.Old.Final.Auto;
 
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.Into_The_Deep.hardware;
+import org.firstinspires.ftc.teamcode.Into_The_Deep.hardwareIntoTheDeep;
 
 public class calculations {
     public double armSpeed = 0.1;
-    private hardware hardware;
+    private hardwareIntoTheDeep hardwareIntoTheDeep;
 
     //TIME
     public ElapsedTime totalGameTime = new ElapsedTime();

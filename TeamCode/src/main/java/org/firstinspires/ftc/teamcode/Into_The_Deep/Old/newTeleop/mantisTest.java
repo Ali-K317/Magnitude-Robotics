@@ -3,11 +3,11 @@ package org.firstinspires.ftc.teamcode.Into_The_Deep.Old.newTeleop;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-import org.firstinspires.ftc.teamcode.Into_The_Deep.hardware;
+import org.firstinspires.ftc.teamcode.Into_The_Deep.hardwareIntoTheDeep;
 
 //@TeleOp(name = "Mantis Test", group = "Teleop")
 public class mantisTest extends LinearOpMode {
-    hardware hardware = new hardware();
+    hardwareIntoTheDeep hardwareIntoTheDeep = new hardwareIntoTheDeep();
     @Override
     public void runOpMode() throws InterruptedException {
         initialize();
@@ -22,21 +22,21 @@ public class mantisTest extends LinearOpMode {
     }
 
     private void initialize(){
-        hardware.mantis = hardwareMap.get(DcMotor.class, "mantis");
-        hardware.mantis.setDirection(DcMotor.Direction.REVERSE);
-        hardware.mantis.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hardwareIntoTheDeep.mantis = hardwareMap.get(DcMotor.class, "mantis");
+        hardwareIntoTheDeep.mantis.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.mantis.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //hardware.mantis.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
     private void mantis(){
         double driveSpeed = gamepad1.right_stick_y;
         //boolean ballCrusher = gamepad1.right_b
         if(gamepad1.right_stick_y > 0) {
-            hardware.mantis.setPower(driveSpeed);
+            hardwareIntoTheDeep.mantis.setPower(driveSpeed);
 
         }else if(gamepad1.right_stick_y < 0){
-            hardware.mantis.setPower(0.2 * driveSpeed);
+            hardwareIntoTheDeep.mantis.setPower(0.2 * driveSpeed);
         }else{
-            hardware.mantis.setPower(0.1);
+            hardwareIntoTheDeep.mantis.setPower(0.1);
         }
     }
 }

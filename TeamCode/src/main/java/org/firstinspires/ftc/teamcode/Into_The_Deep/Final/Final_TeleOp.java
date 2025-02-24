@@ -1,14 +1,13 @@
 package org.firstinspires.ftc.teamcode.Into_The_Deep.Final;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.Into_The_Deep.hardware;
+import org.firstinspires.ftc.teamcode.Into_The_Deep.hardwareIntoTheDeep;
 import org.firstinspires.ftc.teamcode.Into_The_Deep.mainEnum;
 import org.firstinspires.ftc.teamcode.Into_The_Deep.puns;
 
@@ -16,7 +15,7 @@ import java.util.Random;
 
 //@TeleOp(name = "TeleOp", group = "Final")
 public class Final_TeleOp extends LinearOpMode{
-    hardware hardware = new hardware();
+    hardwareIntoTheDeep hardwareIntoTheDeep = new hardwareIntoTheDeep();
     puns puns = new puns();
 
     private final Random random = new Random();
@@ -57,14 +56,14 @@ public class Final_TeleOp extends LinearOpMode{
     // Arm Initialization
     private void initializeArms() {
         try {
-            hardware.mantis = hardwareMap.get(DcMotor.class, "mantis");
-            hardware.lift = hardwareMap.get(DcMotor.class, "lift");
-            hardware.hopper = hardwareMap.get(DcMotor.class, "hopper");
-            hardware.bar = hardwareMap.get(DcMotor.class, "bar");
+            hardwareIntoTheDeep.mantis = hardwareMap.get(DcMotor.class, "mantis");
+            hardwareIntoTheDeep.lift = hardwareMap.get(DcMotor.class, "lift");
+            hardwareIntoTheDeep.hopper = hardwareMap.get(DcMotor.class, "hopper");
+            hardwareIntoTheDeep.bar = hardwareMap.get(DcMotor.class, "bar");
 
-            hardware.door = hardwareMap.get(Servo.class, "door");
-            hardware.topGrabber = hardwareMap.get(CRServo.class, "topGrabber");
-            hardware.bottomGrabber = hardwareMap.get(CRServo.class, "bottomGrabber");
+            hardwareIntoTheDeep.door = hardwareMap.get(Servo.class, "door");
+            hardwareIntoTheDeep.topGrabber = hardwareMap.get(CRServo.class, "topGrabber");
+            hardwareIntoTheDeep.bottomGrabber = hardwareMap.get(CRServo.class, "bottomGrabber");
 
             telemetry.addLine("Arm initialization complete");
         } catch (Exception e) {
@@ -76,10 +75,10 @@ public class Final_TeleOp extends LinearOpMode{
     // Wheel Initialization
     private void initializeWheels() {
         try {
-            hardware.frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
-            hardware.frontRight = hardwareMap.get(DcMotor.class, "frontRight");
-            hardware.backLeft = hardwareMap.get(DcMotor.class, "backLeft");
-            hardware.backRight = hardwareMap.get(DcMotor.class, "backRight");
+            hardwareIntoTheDeep.frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
+            hardwareIntoTheDeep.frontRight = hardwareMap.get(DcMotor.class, "frontRight");
+            hardwareIntoTheDeep.backLeft = hardwareMap.get(DcMotor.class, "backLeft");
+            hardwareIntoTheDeep.backRight = hardwareMap.get(DcMotor.class, "backRight");
 
             telemetry.addLine("Wheel initialization complete");
         } catch (Exception e) {
@@ -90,57 +89,57 @@ public class Final_TeleOp extends LinearOpMode{
 
     // Arm Direction
     private void setDirectionArms() {
-        hardware.lift.setDirection(DcMotor.Direction.REVERSE);
-        hardware.mantis.setDirection(DcMotor.Direction.REVERSE);
-        hardware.hopper.setDirection(DcMotor.Direction.FORWARD);
-        hardware.bar.setDirection(DcMotorSimple.Direction.FORWARD);
+        hardwareIntoTheDeep.lift.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.mantis.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.hopper.setDirection(DcMotor.Direction.FORWARD);
+        hardwareIntoTheDeep.bar.setDirection(DcMotorSimple.Direction.FORWARD);
     }
 
     // Wheel Direction
     private void setDirectionWheels() {
-        hardware.frontLeft.setDirection(DcMotor.Direction.REVERSE);
-        hardware.frontRight.setDirection(DcMotor.Direction.FORWARD);
-        hardware.backLeft.setDirection(DcMotor.Direction.REVERSE);
-        hardware.backRight.setDirection(DcMotor.Direction.FORWARD);
+        hardwareIntoTheDeep.frontLeft.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.frontRight.setDirection(DcMotor.Direction.FORWARD);
+        hardwareIntoTheDeep.backLeft.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.backRight.setDirection(DcMotor.Direction.FORWARD);
     }
 
     // Arm Brakes
     private void setBrakesArms() {
-        hardware.lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        hardware.mantis.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        hardware.hopper.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hardwareIntoTheDeep.lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hardwareIntoTheDeep.mantis.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hardwareIntoTheDeep.hopper.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     // Wheel Brakes
     private void setBrakesWheels() {
-        hardware.frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        hardware.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        hardware.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        hardware.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hardwareIntoTheDeep.frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hardwareIntoTheDeep.frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hardwareIntoTheDeep.backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hardwareIntoTheDeep.backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     // Telemetry
     private void telemetry() {
-        if(hardware.lift.isBusy() || hardware.mantis.isBusy() || hardware.hopper.isBusy()){
-            telemetry.addData("Lift position", hardware.lift.getCurrentPosition());
-            telemetry.addData("Mantis position", hardware.mantis.getCurrentPosition());
-            telemetry.addData("Hopper position", hardware.hopper.getCurrentPosition());
+        if(hardwareIntoTheDeep.lift.isBusy() || hardwareIntoTheDeep.mantis.isBusy() || hardwareIntoTheDeep.hopper.isBusy()){
+            telemetry.addData("Lift position", hardwareIntoTheDeep.lift.getCurrentPosition());
+            telemetry.addData("Mantis position", hardwareIntoTheDeep.mantis.getCurrentPosition());
+            telemetry.addData("Hopper position", hardwareIntoTheDeep.hopper.getCurrentPosition());
             telemetry.update();
         }
-        if(Math.abs(hardware.bottomGrabber.getPower()) > 0 || Math.abs(hardware.topGrabber.getPower()) > 0  ||Math.abs(hardware.door.getPosition()) > 0 ){
-            telemetry.addData("Bottom grabber power", hardware.bottomGrabber.getPower());
-            telemetry.addData("Top grabber power", hardware.topGrabber.getPower());
-            telemetry.addData("Door position", hardware.door.getPosition());
+        if(Math.abs(hardwareIntoTheDeep.bottomGrabber.getPower()) > 0 || Math.abs(hardwareIntoTheDeep.topGrabber.getPower()) > 0  ||Math.abs(hardwareIntoTheDeep.door.getPosition()) > 0 ){
+            telemetry.addData("Bottom grabber power", hardwareIntoTheDeep.bottomGrabber.getPower());
+            telemetry.addData("Top grabber power", hardwareIntoTheDeep.topGrabber.getPower());
+            telemetry.addData("Door position", hardwareIntoTheDeep.door.getPosition());
             telemetry.update();
         }
     }
 
     // Movement
     private void movement(double vertical, double strafe, double turn) {
-            hardware.frontLeft.setPower(-vertical - strafe - turn);
-            hardware.frontRight.setPower(-vertical + strafe + turn);
-            hardware.backLeft.setPower(-vertical + strafe - turn);
-            hardware.backRight.setPower(-vertical - strafe + turn);
+            hardwareIntoTheDeep.frontLeft.setPower(-vertical - strafe - turn);
+            hardwareIntoTheDeep.frontRight.setPower(-vertical + strafe + turn);
+            hardwareIntoTheDeep.backLeft.setPower(-vertical + strafe - turn);
+            hardwareIntoTheDeep.backRight.setPower(-vertical - strafe + turn);
         }
 
 
@@ -159,20 +158,20 @@ public class Final_TeleOp extends LinearOpMode{
         }
 
         if (reversing && (timer.seconds() - reverseStartTime) <= 0.5) {
-            hardware.frontLeft.setPower(0);
-            hardware.frontRight.setPower(0);
-            hardware.backLeft.setPower(0);
-            hardware.backRight.setPower(0);
+            hardwareIntoTheDeep.frontLeft.setPower(0);
+            hardwareIntoTheDeep.frontRight.setPower(0);
+            hardwareIntoTheDeep.backLeft.setPower(0);
+            hardwareIntoTheDeep.backRight.setPower(0);
             return;
         } else {
             reversing = false;
         }
 
         if (brakeOn) {
-            hardware.frontLeft.setPower(0);
-            hardware.frontRight.setPower(0);
-            hardware.backLeft.setPower(0);
-            hardware.backRight.setPower(0);
+            hardwareIntoTheDeep.frontLeft.setPower(0);
+            hardwareIntoTheDeep.frontRight.setPower(0);
+            hardwareIntoTheDeep.backLeft.setPower(0);
+            hardwareIntoTheDeep.backRight.setPower(0);
             return;
         }
 
@@ -189,16 +188,16 @@ public class Final_TeleOp extends LinearOpMode{
     private void arm(mainEnum state, double speed) {
         switch (state) {
             case LIFT:
-                hardware.lift.setPower(speed); // Set lift motor power
+                hardwareIntoTheDeep.lift.setPower(speed); // Set lift motor power
                 break;
             case MANTIS:
-                hardware.mantis.setPower(speed); // Set mantis motor power
+                hardwareIntoTheDeep.mantis.setPower(speed); // Set mantis motor power
                 break;
             case HOPPER:
-                hardware.hopper.setPower(speed); // Set hopper motor power
+                hardwareIntoTheDeep.hopper.setPower(speed); // Set hopper motor power
                 break;
             case BAR:
-                hardware.bar.setPower(speed); // Set bar motor power
+                hardwareIntoTheDeep.bar.setPower(speed); // Set bar motor power
         }
     }
 
@@ -308,21 +307,21 @@ public class Final_TeleOp extends LinearOpMode{
         // Control gripper based on button presses
         //GRABBER
         if(gamepad2.a){
-            hardware.bottomGrabber.setPower(bottomCollect);
-            hardware.topGrabber.setPower(topCollect);
+            hardwareIntoTheDeep.bottomGrabber.setPower(bottomCollect);
+            hardwareIntoTheDeep.topGrabber.setPower(topCollect);
         }else if(gamepad2.b){
-            hardware.bottomGrabber.setPower(bottomRelease);
-            hardware.topGrabber.setPower(topRelease);
+            hardwareIntoTheDeep.bottomGrabber.setPower(bottomRelease);
+            hardwareIntoTheDeep.topGrabber.setPower(topRelease);
         }else{
-            hardware.bottomGrabber.setPower(grabberHold);
-            hardware.topGrabber.setPower(grabberHold);
+            hardwareIntoTheDeep.bottomGrabber.setPower(grabberHold);
+            hardwareIntoTheDeep.topGrabber.setPower(grabberHold);
         }
 
         //DOOR
         if(gamepad2.dpad_up){
-            hardware.door.setPosition(open);
+            hardwareIntoTheDeep.door.setPosition(open);
         }else if (gamepad2.dpad_down){
-            hardware.door.setPosition(close);
+            hardwareIntoTheDeep.door.setPosition(close);
         }
     }
 

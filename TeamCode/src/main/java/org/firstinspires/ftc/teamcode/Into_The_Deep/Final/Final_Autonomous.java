@@ -1,20 +1,19 @@
 package org.firstinspires.ftc.teamcode.Into_The_Deep.Final;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.Into_The_Deep.hardware;
+import org.firstinspires.ftc.teamcode.Into_The_Deep.hardwareIntoTheDeep;
 
 import java.util.Random;
 
 
 //@Autonomous(name = "Time Based Auto", group = "Final")
 public class Final_Autonomous extends LinearOpMode {
-    hardware hardware = new hardware();
+    hardwareIntoTheDeep hardwareIntoTheDeep = new hardwareIntoTheDeep();
 
     private final String[] puns = {
             "A robot didn’t want to have his photo taken. When he was asked why, he replied: Because I’m a photo-resistor!",
@@ -104,48 +103,48 @@ public class Final_Autonomous extends LinearOpMode {
     //Initializes the components
     private void initialize() {
         //Wheels
-        hardware.frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
-        hardware.frontRight = hardwareMap.get(DcMotor.class, "frontRight");
-        hardware.backLeft = hardwareMap.get(DcMotor.class, "backLeft");
-        hardware.backRight = hardwareMap.get(DcMotor.class, "backRight");
+        hardwareIntoTheDeep.frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
+        hardwareIntoTheDeep.frontRight = hardwareMap.get(DcMotor.class, "frontRight");
+        hardwareIntoTheDeep.backLeft = hardwareMap.get(DcMotor.class, "backLeft");
+        hardwareIntoTheDeep.backRight = hardwareMap.get(DcMotor.class, "backRight");
 
         //Arms
-        hardware.mantis = hardwareMap.get(DcMotor.class, "mantis");
-        hardware.lift = hardwareMap.get(DcMotor.class, "lift");
-        hardware.hopper = hardwareMap.get(DcMotor.class, "hopper");
+        hardwareIntoTheDeep.mantis = hardwareMap.get(DcMotor.class, "mantis");
+        hardwareIntoTheDeep.lift = hardwareMap.get(DcMotor.class, "lift");
+        hardwareIntoTheDeep.hopper = hardwareMap.get(DcMotor.class, "hopper");
 
         //Claws
-        hardware.bottomGrabber = hardwareMap.get(CRServo.class, "bottomGrabber");
-        hardware.topGrabber = hardwareMap.get(CRServo.class, "topGrabber");
-        hardware.door = hardwareMap.get(Servo.class, "door");
+        hardwareIntoTheDeep.bottomGrabber = hardwareMap.get(CRServo.class, "bottomGrabber");
+        hardwareIntoTheDeep.topGrabber = hardwareMap.get(CRServo.class, "topGrabber");
+        hardwareIntoTheDeep.door = hardwareMap.get(Servo.class, "door");
     }
 
     //Sets the directions of each component
     private void setWheelDirection() {
-        hardware.frontLeft.setDirection(DcMotor.Direction.REVERSE);
-        hardware.frontRight.setDirection(DcMotor.Direction.FORWARD);
-        hardware.backLeft.setDirection(DcMotor.Direction.REVERSE);
-        hardware.backRight.setDirection(DcMotor.Direction.FORWARD);
+        hardwareIntoTheDeep.frontLeft.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.frontRight.setDirection(DcMotor.Direction.FORWARD);
+        hardwareIntoTheDeep.backLeft.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.backRight.setDirection(DcMotor.Direction.FORWARD);
     }
 
     private void setArmDirection() {
-        hardware.lift.setDirection(DcMotor.Direction.REVERSE);
-        hardware.mantis.setDirection(DcMotor.Direction.REVERSE);
-        hardware.hopper.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.lift.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.mantis.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.hopper.setDirection(DcMotor.Direction.REVERSE);
     }
 
     // Function to send telemetry data
     private void sendTelemetryData() {
         // Display robot's current position, speed, and other relevant data
         telemetry.addData("Time", totalGameTime.seconds());
-        telemetry.addData("Front Left Wheel Speed", hardware.frontLeft.getPower());
-        telemetry.addData("Front Right Wheel Speed", hardware.frontRight.getPower());
-        telemetry.addData("Back Left Wheel Speed", hardware.backLeft.getPower());
-        telemetry.addData("Back Right Wheel Speed", hardware.backRight.getPower());
+        telemetry.addData("Front Left Wheel Speed", hardwareIntoTheDeep.frontLeft.getPower());
+        telemetry.addData("Front Right Wheel Speed", hardwareIntoTheDeep.frontRight.getPower());
+        telemetry.addData("Back Left Wheel Speed", hardwareIntoTheDeep.backLeft.getPower());
+        telemetry.addData("Back Right Wheel Speed", hardwareIntoTheDeep.backRight.getPower());
 
-        telemetry.addData("Bottom Grabber Power", hardware.bottomGrabber.getPower());
-        telemetry.addData("Top Grabber Power", hardware.topGrabber.getPower());
-        telemetry.addData("Door Position", hardware.door.getPosition());
+        telemetry.addData("Bottom Grabber Power", hardwareIntoTheDeep.bottomGrabber.getPower());
+        telemetry.addData("Top Grabber Power", hardwareIntoTheDeep.topGrabber.getPower());
+        telemetry.addData("Door Position", hardwareIntoTheDeep.door.getPosition());
 
         // Add any additional sensor or status information
         telemetry.addData("Robot Status", "Active");
@@ -156,44 +155,44 @@ public class Final_Autonomous extends LinearOpMode {
 
     //Set the components speed
     private void setWheelSpeed(double flSpeed, double frSpeed, double blSpeed, double brSpeed) {
-        hardware.frontLeft.setPower(flSpeed);
-        hardware.frontRight.setPower(frSpeed);
-        hardware.backLeft.setPower(blSpeed * 1.56);
-        hardware.backRight.setPower(brSpeed);
+        hardwareIntoTheDeep.frontLeft.setPower(flSpeed);
+        hardwareIntoTheDeep.frontRight.setPower(frSpeed);
+        hardwareIntoTheDeep.backLeft.setPower(blSpeed * 1.56);
+        hardwareIntoTheDeep.backRight.setPower(brSpeed);
     }
 
     private void setArmSpeed(String armType, double speed) {
         switch (armType) {
             case "MANTIS":
-                hardware.mantis.setPower(speed);
+                hardwareIntoTheDeep.mantis.setPower(speed);
                 break;
             case "LIFT":
-                hardware.lift.setPower(speed);
+                hardwareIntoTheDeep.lift.setPower(speed);
                 break;
             case "HOPPER":
-                hardware.hopper.setPower(speed);
+                hardwareIntoTheDeep.hopper.setPower(speed);
                 break;
         }
     }
 
     //Brake for the motors
     private void wheelBrake() {
-        hardware.frontLeft.setPower(0.0);
-        hardware.frontRight.setPower(0.0);
-        hardware.backLeft.setPower(0.0);
-        hardware.backRight.setPower(0.0);
+        hardwareIntoTheDeep.frontLeft.setPower(0.0);
+        hardwareIntoTheDeep.frontRight.setPower(0.0);
+        hardwareIntoTheDeep.backLeft.setPower(0.0);
+        hardwareIntoTheDeep.backRight.setPower(0.0);
     }
 
     private void armBrake(String armType) {
         switch (armType) {
             case "MANTIS":
-                hardware.mantis.setPower(0.088);
+                hardwareIntoTheDeep.mantis.setPower(0.088);
                 break;
             case "LIFT":
-                hardware.lift.setPower(0.0);
+                hardwareIntoTheDeep.lift.setPower(0.0);
                 break;
             case "HOPPER":
-                hardware.hopper.setPower(0.1);
+                hardwareIntoTheDeep.hopper.setPower(0.1);
                 break;
         }
     }
@@ -201,13 +200,13 @@ public class Final_Autonomous extends LinearOpMode {
     private void clawBrake(String clawType) {
         switch (clawType) {
             case "BOTTOM_GRABBER":
-                hardware.bottomGrabber.setPower(0.0);
+                hardwareIntoTheDeep.bottomGrabber.setPower(0.0);
                 break;
             case "TOP_GRABBER":
-                hardware.topGrabber.setPower(0.0);
+                hardwareIntoTheDeep.topGrabber.setPower(0.0);
                 break;
             case "DOOR":
-                hardware.door.setPosition(hardware.door.getPosition());
+                hardwareIntoTheDeep.door.setPosition(hardwareIntoTheDeep.door.getPosition());
                 break;
         }
     }
@@ -276,15 +275,15 @@ public class Final_Autonomous extends LinearOpMode {
     private void setClawPosition(String clawType, double position) {
         switch (clawType) {
             case "BOTTOM_GRABBER":
-                hardware.bottomGrabber.setPower(position);
+                hardwareIntoTheDeep.bottomGrabber.setPower(position);
                 clawBrake(clawType);
                 break;
             case "TOP_GRABBER":
-                hardware.topGrabber.setPower(position);
+                hardwareIntoTheDeep.topGrabber.setPower(position);
                 clawBrake(clawType);
                 break;
             case "DOOR":
-                hardware.door.setPosition(position);
+                hardwareIntoTheDeep.door.setPosition(position);
                 clawBrake(clawType);
                 break;
 
@@ -342,7 +341,7 @@ public class Final_Autonomous extends LinearOpMode {
         timer.reset();
         //Open door
         while (timer.seconds() <= 1) {
-            hardware.door.setPosition(open);
+            hardwareIntoTheDeep.door.setPosition(open);
         }
         //Wiggle a bit
         for (int i = 0; i < 4; i++) {
@@ -364,7 +363,7 @@ public class Final_Autonomous extends LinearOpMode {
         timer.reset();
         //Close door
         while (timer.seconds() <= 1) {
-            hardware.door.setPosition(close);
+            hardwareIntoTheDeep.door.setPosition(close);
         }
         timer.reset();
         //Lower hopper
@@ -417,7 +416,7 @@ public class Final_Autonomous extends LinearOpMode {
         timer.reset();
         //Open door
         while (timer.seconds() <= 1) {
-            hardware.door.setPosition(open);
+            hardwareIntoTheDeep.door.setPosition(open);
         }
         //Wiggle a bit
         for (int i = 0; i < 4; i++) {
@@ -439,7 +438,7 @@ public class Final_Autonomous extends LinearOpMode {
         timer.reset();
         //Close door
         while (timer.seconds() <= 1) {
-            hardware.door.setPosition(close);
+            hardwareIntoTheDeep.door.setPosition(close);
         }
         timer.reset();
         //Lower hopper

@@ -2,11 +2,11 @@ package org.firstinspires.ftc.teamcode.Into_The_Deep.Old.newAuto;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-import org.firstinspires.ftc.teamcode.Into_The_Deep.hardware;
+import org.firstinspires.ftc.teamcode.Into_The_Deep.hardwareIntoTheDeep;
 
 //@Autonomous(name = "Wheel test", group = "Test")
 public class wheelTest extends LinearOpMode {
-    hardware hardware = new hardware();
+    hardwareIntoTheDeep hardwareIntoTheDeep = new hardwareIntoTheDeep();
 
     int tickPer10cm = 100;
     int tickPerCm = (int) tickPer10cm/10;
@@ -23,21 +23,21 @@ public class wheelTest extends LinearOpMode {
         }
     }
     private void initialize(){
-        hardware.frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
-        hardware.frontRight = hardwareMap.get(DcMotor.class, "frontRight");
-        hardware.backLeft = hardwareMap.get(DcMotor.class, "backLeft");
-        hardware.backRight = hardwareMap.get(DcMotor.class, "backRight");
+        hardwareIntoTheDeep.frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
+        hardwareIntoTheDeep.frontRight = hardwareMap.get(DcMotor.class, "frontRight");
+        hardwareIntoTheDeep.backLeft = hardwareMap.get(DcMotor.class, "backLeft");
+        hardwareIntoTheDeep.backRight = hardwareMap.get(DcMotor.class, "backRight");
     }
     private void setDirection(){
-        hardware.frontLeft.setDirection(DcMotor.Direction.REVERSE);
-        hardware.frontRight.setDirection(DcMotor.Direction.FORWARD);
-        hardware.backLeft.setDirection(DcMotor.Direction.REVERSE);
-        hardware.backRight.setDirection(DcMotor.Direction.FORWARD);
+        hardwareIntoTheDeep.frontLeft.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.frontRight.setDirection(DcMotor.Direction.FORWARD);
+        hardwareIntoTheDeep.backLeft.setDirection(DcMotor.Direction.REVERSE);
+        hardwareIntoTheDeep.backRight.setDirection(DcMotor.Direction.FORWARD);
     }
     private void forward(int pos, double speed){
         setPos(pos);
         runToPos();
-        while(hardware.frontLeft.getCurrentPosition() < pos){
+        while(hardwareIntoTheDeep.frontLeft.getCurrentPosition() < pos){
             setSpeed(speed);
         }
         speed = 0.0;
@@ -46,28 +46,28 @@ public class wheelTest extends LinearOpMode {
         sleep(250);
     }
     private void setSpeed(double speed){
-        hardware.frontLeft.setPower(speed);
-        hardware.frontRight.setPower(speed);
-        hardware.backLeft.setPower(speed);
-        hardware.backRight.setPower(speed);
+        hardwareIntoTheDeep.frontLeft.setPower(speed);
+        hardwareIntoTheDeep.frontRight.setPower(speed);
+        hardwareIntoTheDeep.backLeft.setPower(speed);
+        hardwareIntoTheDeep.backRight.setPower(speed);
     }
     private void setPos(int pos){
-        hardware.frontLeft.setTargetPosition(pos);
-        hardware.frontRight.setTargetPosition(pos);
-        hardware.backLeft.setTargetPosition(pos);
-        hardware.backRight.setTargetPosition(pos);
+        hardwareIntoTheDeep.frontLeft.setTargetPosition(pos);
+        hardwareIntoTheDeep.frontRight.setTargetPosition(pos);
+        hardwareIntoTheDeep.backLeft.setTargetPosition(pos);
+        hardwareIntoTheDeep.backRight.setTargetPosition(pos);
     }
     private void resetEncoders(){
-        hardware.frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        hardware.frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        hardware.backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        hardware.backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        hardwareIntoTheDeep.frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        hardwareIntoTheDeep.frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        hardwareIntoTheDeep.backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        hardwareIntoTheDeep.backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
     private void runToPos(){
-        hardware.frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        hardware.frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        hardware.backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        hardware.backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        hardwareIntoTheDeep.frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        hardwareIntoTheDeep.frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        hardwareIntoTheDeep.backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        hardwareIntoTheDeep.backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
     }
 }
