@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.lessons2025;
+package org.firstinspires.ftc.teamcode.Lessons2025;
 /*
 Don't worry about memorizing these imports.
 The 'LinearOpMode' will be red at first, indicating an error,
