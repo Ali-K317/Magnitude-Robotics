@@ -35,4 +35,5 @@ public class basicSetup extends LinearOpMode {
             //This is where all your code requiring inputs will be.
         }
     }
+    //This is where all functions will be called, more on that later.
 }
