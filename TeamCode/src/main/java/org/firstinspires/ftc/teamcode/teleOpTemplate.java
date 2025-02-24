@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name = "DO NOT PICK THIS", group = "template")
+@TeleOp(name = "DO NOT PICK THIS", group = "Template")
 public class teleOpTemplate extends LinearOpMode {
 
     @Override
