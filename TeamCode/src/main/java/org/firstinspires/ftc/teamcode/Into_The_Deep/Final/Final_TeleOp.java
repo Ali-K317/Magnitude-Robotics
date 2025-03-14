@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Into_The_Deep.Final;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -13,7 +14,7 @@ import org.firstinspires.ftc.teamcode.Into_The_Deep.puns;
 
 import java.util.Random;
 
-//@TeleOp(name = "TeleOp", group = "Final")
+@TeleOp(name = "TeleOp", group = "Final")
 public class Final_TeleOp extends LinearOpMode{
     hardwareIntoTheDeep hardwareIntoTheDeep = new hardwareIntoTheDeep();
     puns puns = new puns();
@@ -209,8 +210,8 @@ public class Final_TeleOp extends LinearOpMode{
         double threshold = 0.3; //Threshold for gamepad input
 
         //MANTIS
-        double mantisUpReduction = 0.7;
-        double mantisDownReduction = 0.6;
+        double mantisUpReduction = 1;
+        double mantisDownReduction = 1;
         double mantisUp = gamepad2.right_stick_y * mantisUpReduction;
         double mantisDown = gamepad2.right_stick_y * mantisDownReduction;
         double mantisBrake = 0;

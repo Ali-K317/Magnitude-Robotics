@@ -37,3 +37,14 @@ public class basicSetup extends LinearOpMode {
     }
     //This is where all functions will be called, more on that later.
 }
+
+/*
+For the builders.
+My code only runs while the driver hub is being played, not while initializing or being turned off.
+And no i can't put inputs or motor functions in the initializing phase, they're uncontrollable
+and could harm the robot.
+But, telemetry-which is information about sensors or time-can be used in initialization and in the
+main while loop.
+This allows yall to collect any required data much easier, but the encoder counts are horrid,
+so horrid in fact its the reason the odemetry system was ever made.
+ */
