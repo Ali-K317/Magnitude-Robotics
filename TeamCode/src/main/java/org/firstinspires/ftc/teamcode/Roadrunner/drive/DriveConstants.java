@@ -18,7 +18,6 @@ import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 @Config
 public class DriveConstants {
 
-    //BEN
     /*
      * 1
      * These are motor constants that should be listed online for your motors.
@@ -39,7 +38,6 @@ public class DriveConstants {
     public static PIDFCoefficients MOTOR_VELO_PID = new PIDFCoefficients(0, 0, 0,
             getMotorVelocityF(MAX_RPM / 60 * TICKS_PER_REV));
 
-    //IZZY
     /*
      * 3
      * These are physical constants that can be determined from your robot (including the track
@@ -64,7 +62,6 @@ public class DriveConstants {
     public static double kA = 0;
     public static double kStatic = 0;
 
-    //ALI
     /*
      * 5
      * These values are used to generate the trajectories for you robot. To ensure proper operation,
