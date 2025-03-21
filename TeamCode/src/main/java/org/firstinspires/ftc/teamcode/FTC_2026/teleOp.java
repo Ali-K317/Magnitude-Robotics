@@ -140,6 +140,27 @@ public class teleOp extends LinearOpMode {
         driveMotors.get(2).setPower(-vertical+strafe-turn);
         driveMotors.get(3).setPower(-vertical-strafe+turn);
     }
+    private void moveDiagonal(double speed){
+        boolean isMovingVertical;
+        double diagonalThreshold = 0.3;
+
+        isMovingVertical = (Math.abs(gamepad1.right_stick_y) > diagonalThreshold) && (Math.abs(gamepad1.right_stick_x) > diagonalThreshold);
+        if(isMovingVertical) {
+            if (gamepad1.right_stick_y > diagonalThreshold && gamepad1.right_stick_x > diagonalThreshold) {
+                driveMotors.get(0).setPower(speed);
+                driveMotors.get(3).setPower(speed);
+            } else if (gamepad1.right_stick_y > diagonalThreshold && gamepad1.right_stick_x < -diagonalThreshold) {
+                driveMotors.get(1).setPower(speed);
+                driveMotors.get(2).setPower(speed);
+            } else if (gamepad1.right_stick_y < -diagonalThreshold && gamepad1.right_stick_x > diagonalThreshold) {
+                driveMotors.get(1).setPower(-speed);
+                driveMotors.get(2).setPower(-speed);
+            } else if (gamepad1.right_stick_y < -diagonalThreshold && gamepad1.right_stick_x < -diagonalThreshold) {
+                driveMotors.get(0).setPower(-speed);
+                driveMotors.get(3).setPower(-speed);
+            }
+        }
+    }
     private void finalWheelMovement() {
         //Threshold for input
         double threshold = 0.2;
@@ -148,6 +169,7 @@ public class teleOp extends LinearOpMode {
         double turn = Math.abs(gamepad1.right_stick_x) > threshold ? gamepad1.right_stick_x: 0;
         double strafe = Math.abs(gamepad1.left_stick_x) > threshold ? gamepad1.left_stick_x: 0;
         moveWheels(vertical, strafe, turn);
+        moveDiagonal(0.5);
     }
     //Arms
     private void moveArms(String state, double speed){
