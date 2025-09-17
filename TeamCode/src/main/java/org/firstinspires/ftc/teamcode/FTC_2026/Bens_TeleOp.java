@@ -7,17 +7,13 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
-
 import java.util.Random;
 
 @TeleOp(name = "Ben's TeleOp???")
 public class Bens_TeleOp extends LinearOpMode {
 
-    private DcMotor claw1 = null;
-    private DcMotor claw2 = null;
-
-    private void Double claw1Power = claw1.setPower(0.5);
-    private void Double claw2Power = claw2.setPower(0.5);
+    private DcMotor claw1;
+    private DcMotor claw2;
 
     @Override
     public void runOpMode() {
@@ -28,6 +24,9 @@ public class Bens_TeleOp extends LinearOpMode {
         claw1.setDirection(DcMotor.Direction.FORWARD);
         claw2.setDirection(DcMotor.Direction.REVERSE);
 
+        claw1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        claw2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         waitForStart();
         while (opModeIsActive()) {
 
@@ -35,7 +34,9 @@ public class Bens_TeleOp extends LinearOpMode {
             telemetry.addData("claw2 Position", claw2.getCurrentPosition());
             telemetry.update();
 
-            gamepad1.a ? claw1Power && claw2Power : claw1Power && claw2Power;
+            double power = gamepad1.a ? 0.5 : 0.0;
+            claw1.setPower(power);
+            claw2.setPower(power);
 
         }
     }
