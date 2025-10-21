@@ -80,7 +80,7 @@ public class teleOpTemplate extends LinearOpMode {
                 }
             }
     }
-    private  void initializeSensors(){
+    private void initializeSensors(){
     }
     private void initializeHardware(){
         initializeWheels();
